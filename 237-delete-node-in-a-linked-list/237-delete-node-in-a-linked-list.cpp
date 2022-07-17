@@ -9,11 +9,12 @@
 class Solution {
 public:
     void deleteNode(ListNode* node) {
-        ListNode *temp;
+       
         if(node == NULL)return;
+         ListNode *temp;
       swap(node->val,node->next->val);
         temp = node->next;
        node->next= temp->next;
-        delete temp;
+        // delete temp;
     }
 };
