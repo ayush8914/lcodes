@@ -12,6 +12,8 @@ public:
         ListNode *temp;
         if(node == NULL)return;
       swap(node->val,node->next->val);
-       node->next= node->next->next;    
+        temp = node->next;
+       node->next= temp->next;
+        delete temp;
     }
 };
