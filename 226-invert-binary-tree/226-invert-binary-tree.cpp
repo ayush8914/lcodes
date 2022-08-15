@@ -14,10 +14,13 @@ class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
         if(root == NULL)return root;
-          swap(root->left,root->right);
-        if(root->left != NULL)invertTree(root->left);
-        if(root->right != NULL)invertTree(root->right); 
-        
+        ivt(root); 
         return root;
+    }
+    
+   void ivt(TreeNode* root){
+        swap(root->left,root->right);
+        if(root->left != NULL)ivt(root->left);
+        if(root->right != NULL)ivt(root->right);
     }
 };
