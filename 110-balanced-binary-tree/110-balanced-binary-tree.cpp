@@ -22,7 +22,7 @@ public:
         int l = fun(root->left);
         int r = fun(root->right);
         
-        if(abs(l-r) > 1)flag = false;
+        if(abs(l-r) > 1){flag = false; return 0;}
         return 1+max(l,r);
     }
 };
