@@ -20,7 +20,7 @@ public:
                 
         }
         if(!st.empty())return false;
-        else
+
         return true;
     }
 };
