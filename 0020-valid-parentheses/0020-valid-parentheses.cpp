@@ -2,15 +2,25 @@ class Solution {
 public:
     bool isValid(string s) {
         stack<char> st;
+
+        //optimization
+        map<char,char> p;
+        p[']'] = '[';
+        p[')'] = '(';
+        p['}'] = '{';
+
+        map<char,int> p1;
+        p1['{'] =1;
+        p1['[']=1;
+        p1['(']=1;
         for(int i=0;i<s.length();i++){
             
-            if(s[i] == '(' || s[i] == '{' || s[i] =='[')st.push(s[i]);
-            else if( s[i] == ')' || s[i] == '}' || s[i] ==']'){
+            if(p1[s[i]])st.push(s[i]);
+            else if(p[s[i]]){
                 if(st.empty())
             return false;
             else {
-                if((s[i] == ']' && st.top() == '[') ||  (s[i] == '}' && st.top() == '{') ||
-                 (s[i] == ')' && st.top() == '(') ){
+                if(p[s[i]] == st.top() ){
                      st.pop();   
                  }
                  else return false;
