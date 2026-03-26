@@ -1,25 +1,17 @@
 class Solution {
   public:
     int closestNumber(int n, int m) {
-        // code here
-        int start = n - abs(m);
-        int end = n + abs(m);
         
-        int minDiff=INT_MAX;
-        int closest=0;
+        int q= n/m;
         
-        for(int i=start;i<=end;i++)
-        {
-            if(i%m==0)
-            {
-                int diff = abs(n-i);
-                if(diff < minDiff || (minDiff == diff && abs(i) > abs(closest))){
-                    closest = i;
-                    minDiff=diff;
-                }
-            }
-        }
+        int n1 = m*q;
         
-        return closest;
+        int n2 = n*m > 0 ? (m*(q+1)) : (m*(q-1));
+        
+        if(abs(n-n1) < abs(n-n2))
+         return n1;
+         
+        return n2;
+    
     }
 };
